@@ -1,0 +1,37 @@
+package com.amm.poc.openbk;
+
+import com.amm.poc.openbk.infrastructure.customer.repository.JpaCustomerRepository;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
+import java.util.Optional;
+
+import static org.assertj.core.api.Assertions.assertThat;
+@SpringBootTest
+public class JpaCustomerRepositoryTest {
+    @Autowired
+    private JpaCustomerRepository jpaCustomerRepository;
+
+    @Test
+    public void whenFindingCustomerById_thenCorrect() {
+        jpaCustomerRepository.save(new Customer("John", "john@domain.com"));
+        assertThat(jpaCustomerRepository.findById(1L)).isInstanceOf(Optional.class);
+    }
+
+    @Test
+    public void whenFindingAllCustomers_thenCorrect() {
+        jpaCustomerRepository.save(new Customer("John", "john@domain.com"));
+        jpaCustomerRepository.save(new Customer("Julie", "julie@domain.com"));
+        assertThat(jpaCustomerRepository.findAll()).isInstanceOf(List.class);
+    }
+
+    @Test
+    public void whenSavingCustomer_thenCorrect() {
+        jpaCustomerRepository.save(new Customer("Bob", "bob@domain.com"));
+        Customer customer = jpaCustomerRepository.findById(1L).orElseGet(()
+                -> new Customer("john", "john@domain.com"));
+        assertThat(customer.getName()).isEqualTo("Bob");
+    }
+}

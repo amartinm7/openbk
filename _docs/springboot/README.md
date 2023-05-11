@@ -31,3 +31,6 @@ These additional references should also help you:
 
 * [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
 
+
+## errors by default
+org.springframework.web.client.HttpClientErrorException$NotFound: 404 : "{"timestamp":1683831972150,"status":404,"error":"Not Found","path":"/v1/customer"}"

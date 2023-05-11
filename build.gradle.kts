@@ -35,6 +35,8 @@ dependencies {
     testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.9.3")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.3")
     testImplementation("org.assertj:assertj-core:3.23.1")
+    testImplementation("org.mockito:mockito-inline:5.2.0")
+    testImplementation("org.mockito:mockito-junit-jupiter:5.3.1")
 }
 
 tasks.withType<Test> {
@@ -80,13 +82,16 @@ testing {
 
         val integrationTest by registering(JvmTestSuite::class)
         val acceptanceTest by registering(JvmTestSuite::class)
+        val contractTest by registering(JvmTestSuite::class)
 
         setupDependenciesFor(integrationTest.name)
         setupDependenciesFor(acceptanceTest.name)
+        setupDependenciesFor(contractTest.name)
 
         tasks.named("check") {
             dependsOn(testing.suites.named(integrationTest.name))
             dependsOn(testing.suites.named(acceptanceTest.name))
+            dependsOn(testing.suites.named(contractTest.name))
         }
     }
 }
