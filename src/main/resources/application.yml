@@ -1,9 +1,9 @@
 spring:
   datasource:
-    driver-class-name: org.hsqldb.jdbc.JDBCDriver
-    url: jdbc:hsqldb:mem:testdb;DB_CLOSE_DELAY=-1
-    username: sa
-    password:
+    driverClassName: org.postgresql.Driver
+    url: "jdbc:postgresql://myopenbk:5432/openbk"
+    username: any
+    password: any
     ddl-auto: create
 
 server:

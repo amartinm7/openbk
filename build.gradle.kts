@@ -25,6 +25,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-rest")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.flywaydb:flyway-core")
+    implementation("org.postgresql:postgresql:42.6.0")
     implementation("org.springframework.data:spring-data-rest-hal-explorer")
     implementation("org.hsqldb:hsqldb:2.7.1")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
