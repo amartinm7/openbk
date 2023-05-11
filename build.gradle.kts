@@ -1,5 +1,6 @@
 plugins {
 	java
+	`jvm-test-suite`
 	id("org.springframework.boot") version "3.0.6"
 	id("io.spring.dependency-management") version "1.1.0"
 }
@@ -33,33 +34,58 @@ dependencies {
 	testImplementation("org.junit.jupiter:junit-jupiter-params:5.9.3")
 	testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.9.3")
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.3")
+	testImplementation("org.assertj:assertj-core:3.23.1")
 }
 
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
-sourceSets {
-	create("integrationTest") {
-		compileClasspath += sourceSets.main.get().output
-		runtimeClasspath += sourceSets.main.get().output
+testing {
+	suites {
+		val test by getting(JvmTestSuite::class) {
+			useJUnitJupiter()
+		}
+
+		configureEach {
+			if (this is JvmTestSuite) {
+				useJUnitJupiter()
+				dependencies {
+					implementation(project())
+					compileOnly(project())
+					runtimeOnly(project())
+					annotationProcessor(project())
+				}
+				targets {
+					all {
+						testTask.configure {
+							shouldRunAfter(test)
+						}
+					}
+				}
+			}
+		}
+		fun setupDependenciesFor(moduleName: String) {
+			// this is for lib dependency inheritance
+			with(configurations) {
+				named("${moduleName}Implementation") {
+					extendsFrom(configurations["testImplementation"])
+				}
+				named("${moduleName}RuntimeOnly") {
+					extendsFrom(configurations["testRuntimeOnly"])
+				}
+			}
+		}
+
+		val integrationTest by registering(JvmTestSuite::class)
+		val acceptanceTest by registering(JvmTestSuite::class)
+
+		setupDependenciesFor(integrationTest.name)
+		setupDependenciesFor(acceptanceTest.name)
+
+		tasks.named("check") {
+			dependsOn(testing.suites.named(integrationTest.name))
+			dependsOn(testing.suites.named(acceptanceTest.name))
+		}
 	}
 }
-
-val integrationTestImplementation by configurations.getting {
-	extendsFrom(configurations.implementation.get())
-}
-
-configurations["integrationTestRuntimeOnly"].extendsFrom(configurations.runtimeOnly.get())
-
-val integrationTest = task<Test>("integrationTest") {
-	description = "Runs integration tests."
-	group = "verification"
-
-	testClassesDirs = sourceSets["integrationTest"].output.classesDirs
-	classpath = sourceSets["integrationTest"].runtimeClasspath
-
-	useJUnitPlatform()
-}
-
-tasks.check { dependsOn(integrationTest) }
