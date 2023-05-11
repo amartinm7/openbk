@@ -12,6 +12,7 @@ import java.util.UUID;
 @Table(name = "task")
 public class JpaTask {
     @Id
+    @Column(name = "uuid")
     private UUID uuid;
 
     @Column(name = "name")
