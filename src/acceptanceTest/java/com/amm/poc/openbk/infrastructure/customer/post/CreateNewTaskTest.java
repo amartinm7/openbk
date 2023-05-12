@@ -12,8 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import java.net.URISyntaxException;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Testcontainers
@@ -26,7 +24,7 @@ public class CreateNewTaskTest extends SpringbootAcceptanceTest {
     private int port;
 
     @Test
-    public void shouldCreateNewTask() throws URISyntaxException {
+    public void shouldCreateNewTask() {
         TaskHttpRequest taskHttpRequest = new TaskHttpRequest("sci-fy article", "lorem ipsum");
         HttpEntity httpRequest = new HttpEntity<TaskHttpRequest>(taskHttpRequest);
         ResponseEntity<TaskHttpResponse> response = restTemplate.postForEntity("http://localhost:%d/v1/task".formatted(port), httpRequest, TaskHttpResponse.class);
