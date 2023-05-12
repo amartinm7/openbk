@@ -12,7 +12,6 @@ public class CreateNewTaskService {
     private final UUIDService uuidService;
 
     public CreateNewTaskService(TaskRepository taskRepository, UUIDService uuidService) {
-
         this.taskRepository = taskRepository;
         this.uuidService = uuidService;
     }

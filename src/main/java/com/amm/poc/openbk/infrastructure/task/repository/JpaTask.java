@@ -9,7 +9,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Table(name = "task")
+@Table(name = "tasks")
 public class JpaTask {
     @Id
     @Column(name = "uuid")

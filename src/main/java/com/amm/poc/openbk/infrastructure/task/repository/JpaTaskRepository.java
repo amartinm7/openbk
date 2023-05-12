@@ -5,16 +5,15 @@ import com.amm.poc.openbk.domain.task.TaskRepository;
 
 public class JpaTaskRepository implements TaskRepository {
 
-    private final CrudJpaTaskRepository crudJpaTaskRepository;
+    private final ListCrudJpaTaskRepository listCrudJpaTaskRepository;
 
-    public JpaTaskRepository(CrudJpaTaskRepository crudJpaTaskRepository) {
-
-        this.crudJpaTaskRepository = crudJpaTaskRepository;
+    public JpaTaskRepository(ListCrudJpaTaskRepository listCrudJpaTaskRepository) {
+        this.listCrudJpaTaskRepository = listCrudJpaTaskRepository;
     }
 
     @Override
     public Task save(Task task) {
-        crudJpaTaskRepository.save(jpaTaskFrom(task));
+        listCrudJpaTaskRepository.save(jpaTaskFrom(task));
         return task;
     }
 

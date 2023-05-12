@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
@@ -23,8 +24,8 @@ public class CreateNewTaskController {
         this.service = service;
     }
 
-    @PostMapping("/v1/task")
-    public ResponseEntity<TaskHttpResponse> execute(TaskHttpRequest httpRequest){
+    @PostMapping(path = "/v1/task", consumes = "application/json;charset=UTF-8")
+    public ResponseEntity<TaskHttpResponse> execute(@RequestBody TaskHttpRequest httpRequest){
         try {
             CreateNewTaskResponse serviceResponse = service.execute(mapFrom(httpRequest));
             return ResponseEntity.created(getLocationFrom(serviceResponse)).build();

@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  database:
+    image: postgres:14.5
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: userdb
+      POSTGRES_PASSWORD: passdb
+      POSTGRES_DB: myopenbk

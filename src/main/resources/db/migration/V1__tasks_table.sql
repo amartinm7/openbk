@@ -1,3 +1,6 @@
+CREATE
+    EXTENSION IF NOT EXISTS "uuid-ossp";
+
 DROP TABLE IF EXISTS tasks;
 
 CREATE TABLE tasks
