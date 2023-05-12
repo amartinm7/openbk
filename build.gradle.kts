@@ -38,6 +38,11 @@ dependencies {
     testImplementation("org.assertj:assertj-core:3.23.1")
     testImplementation("org.mockito:mockito-inline:5.2.0")
     testImplementation("org.mockito:mockito-junit-jupiter:5.3.1")
+    testImplementation("org.testcontainers:testcontainers:1.18.1") {
+        exclude(group = "org.slf4j", module = "slf4j-api")
+    }
+    testImplementation("org.testcontainers:junit-jupiter:1.18.1")
+    testImplementation("org.testcontainers:postgresql:1.18.1")
 }
 
 tasks.withType<Test> {

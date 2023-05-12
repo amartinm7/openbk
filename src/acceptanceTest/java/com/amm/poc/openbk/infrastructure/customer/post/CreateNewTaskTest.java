@@ -1,23 +1,25 @@
 package com.amm.poc.openbk.infrastructure.customer.post;
 
+import com.amm.poc.openbk.infrastructure.SpringbootAcceptanceTest;
 import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpRequest;
 import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpResponse;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class CreateNewTaskTest {
+@Testcontainers
+public class CreateNewTaskTest extends SpringbootAcceptanceTest {
 
     @Autowired
     private RestTemplate restTemplate;
@@ -36,6 +38,6 @@ public class CreateNewTaskTest {
     }
 
     private URI getLocation() throws URISyntaxException {
-        return new URI( "/v1/task/1");
+        return new URI("/v1/task/1");
     }
 }

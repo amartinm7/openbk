@@ -1,10 +1,12 @@
+docker:
+  host: "${DOCKER_IP:localhost}"
 spring:
   datasource:
     driverClassName: org.postgresql.Driver
-    url: "jdbc:postgresql://myopenbk:5432/openbk"
-    username: any
-    password: any
-    ddl-auto: create
+    url: 'jdbc:postgresql://${docker.host}:5432/myopenbk'
+    username: "userdb"
+    password: "passdb"
+    dbname: "myopenbk"
 
 server:
   port: 8000
