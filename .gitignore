@@ -10,6 +10,7 @@ gradle-app.setting
 !gradle-wrapper.jar
 
 .idea
+/**/.idea/*
 *.iml
 
 # Jenv
