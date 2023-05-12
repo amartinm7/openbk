@@ -19,14 +19,16 @@ public class JpaTask {
     private String name;
     @Column(name = "description")
     private String description;
+    private int priority;
 
     public JpaTask() {
     }
 
-    public JpaTask(UUID uuid, String name, String description) {
+    public JpaTask(UUID uuid, String name, String description, int priority) {
         this.uuid = uuid;
         this.name = name;
         this.description = description;
+        this.priority = priority;
     }
 
     public String getDescription() {
@@ -53,6 +55,14 @@ public class JpaTask {
         this.uuid = uuid;
     }
 
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -74,4 +84,6 @@ public class JpaTask {
                 ", description='" + description + '\'' +
                 '}';
     }
+
+
 }

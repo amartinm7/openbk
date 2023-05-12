@@ -36,7 +36,7 @@ public class CreateNewTaskController {
     }
 
     private CreateNewTaskRequest mapFrom(TaskHttpRequest httpRequest) {
-        return new CreateNewTaskRequest(httpRequest.name(), httpRequest.description());
+        return new CreateNewTaskRequest(httpRequest.name(), httpRequest.description(), httpRequest.priority());
     }
 
     private TaskHttpResponse mapFrom(CreateNewTaskResponse serviceResponse) {

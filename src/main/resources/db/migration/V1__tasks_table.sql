@@ -8,8 +8,9 @@ CREATE TABLE tasks
     uuid        uuid                     NOT NULL,
     name        VARCHAR(100)             NOT NULL,
     description VARCHAR(100)             NOT NULL,
-    created_at  timestamp with time zone NOT NULL DEFAULT (now()):: timestamp (0) without time zone,
-    modified_at timestamp with time zone NOT NULL DEFAULT (now()):: timestamp (0) without time zone
+    priority    INT                      NOT NULL,
+    created_at  timestamp with time zone NOT NULL DEFAULT (now()):: timestamp(0) without time zone,
+    modified_at timestamp with time zone NOT NULL DEFAULT (now()):: timestamp(0) without time zone
 );
 
 ALTER TABLE tasks

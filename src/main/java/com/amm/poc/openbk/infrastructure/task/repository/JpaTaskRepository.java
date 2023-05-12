@@ -17,7 +17,12 @@ public class JpaTaskRepository implements TaskRepository {
         return task;
     }
 
-    private JpaTask jpaTaskFrom (Task task) {
-        return new JpaTask(task.uuid(), task.name().value(), task.description().value());
+    private JpaTask jpaTaskFrom(Task task) {
+        return new JpaTask(
+                task.uuid(),
+                task.name().value(),
+                task.description().value(),
+                task.priority().value()
+        );
     }
 }

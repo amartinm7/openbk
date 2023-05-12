@@ -1,9 +1,6 @@
 package com.amm.poc.openbk.application.task.service;
 
-import com.amm.poc.openbk.domain.task.Task;
-import com.amm.poc.openbk.domain.task.TaskDescriptionVO;
-import com.amm.poc.openbk.domain.task.TaskNameVO;
-import com.amm.poc.openbk.domain.task.TaskRepository;
+import com.amm.poc.openbk.domain.task.*;
 import com.amm.poc.openbk.infrastructure._boostrap.UUIDService;
 
 public class CreateNewTaskService {
@@ -22,6 +19,11 @@ public class CreateNewTaskService {
     }
 
     private Task taskFrom(CreateNewTaskRequest request) {
-        return new Task(uuidService.randomUUID(), new TaskNameVO(request.name()), new TaskDescriptionVO(request.description()));
+        return new Task(
+                uuidService.randomUUID(),
+                new TaskNameVO(request.name()),
+                new TaskDescriptionVO(request.description()),
+                new TaskPriorityVO(request.priority())
+        );
     }
 }

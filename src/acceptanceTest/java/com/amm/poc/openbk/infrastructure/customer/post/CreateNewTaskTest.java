@@ -24,8 +24,8 @@ public class CreateNewTaskTest extends SpringbootAcceptanceTest {
     private int port;
 
     @Test
-    public void shouldCreateNewTask() {
-        TaskHttpRequest taskHttpRequest = new TaskHttpRequest("sci-fy article", "lorem ipsum");
+    public void should_create_a_new_task() {
+        TaskHttpRequest taskHttpRequest = new TaskHttpRequest("sci-fy article", "lorem ipsum", 3);
         HttpEntity httpRequest = new HttpEntity<TaskHttpRequest>(taskHttpRequest);
         ResponseEntity<TaskHttpResponse> response = restTemplate.postForEntity("http://localhost:%d/v1/task".formatted(port), httpRequest, TaskHttpResponse.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
