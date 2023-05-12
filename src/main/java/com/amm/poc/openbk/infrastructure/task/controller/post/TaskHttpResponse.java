@@ -1,4 +1,4 @@
-package com.amm.poc.openbk.infrastructure.task.controller;
+package com.amm.poc.openbk.infrastructure.task.controller.post;
 
 import java.util.UUID;
 

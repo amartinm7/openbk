@@ -1,4 +1,4 @@
-package com.amm.poc.openbk.infrastructure.task.controller;
+package com.amm.poc.openbk.infrastructure.task.controller.post;
 
 import com.amm.poc.openbk.application.task.service.CreateNewTaskRequest;
 import com.amm.poc.openbk.application.task.service.CreateNewTaskResponse;

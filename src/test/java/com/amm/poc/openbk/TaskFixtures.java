@@ -5,7 +5,7 @@ import com.amm.poc.openbk.domain.task.Task;
 import com.amm.poc.openbk.domain.task.TaskDescriptionVO;
 import com.amm.poc.openbk.domain.task.TaskNameVO;
 import com.amm.poc.openbk.domain.task.TaskPriorityVO;
-import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpRequest;
+import com.amm.poc.openbk.infrastructure.task.controller.post.TaskHttpRequest;
 import com.amm.poc.openbk.infrastructure.task.repository.JpaTask;
 
 import java.util.UUID;

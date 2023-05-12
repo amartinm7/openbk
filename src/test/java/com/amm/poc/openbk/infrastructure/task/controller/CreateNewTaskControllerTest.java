@@ -3,6 +3,8 @@ package com.amm.poc.openbk.infrastructure.task.controller;
 import com.amm.poc.openbk.TaskFixtures;
 import com.amm.poc.openbk.application.task.service.CreateNewTaskResponse;
 import com.amm.poc.openbk.application.task.service.CreateNewTaskService;
+import com.amm.poc.openbk.infrastructure.task.controller.post.CreateNewTaskController;
+import com.amm.poc.openbk.infrastructure.task.controller.post.TaskHttpResponse;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.http.HttpStatus;
@@ -10,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
