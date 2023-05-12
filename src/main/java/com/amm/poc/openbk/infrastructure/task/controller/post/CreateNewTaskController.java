@@ -40,7 +40,12 @@ public class CreateNewTaskController {
     }
 
     private TaskHttpResponse mapFrom(CreateNewTaskResponse serviceResponse) {
-        return new TaskHttpResponse(serviceResponse.uuid(), serviceResponse.name(), serviceResponse.description());
+        return new TaskHttpResponse(
+                serviceResponse.uuid(),
+                serviceResponse.name(),
+                serviceResponse.description(),
+                serviceResponse.priority()
+        );
     }
 
     private URI getLocationFrom(CreateNewTaskResponse serviceResponse) throws URISyntaxException {

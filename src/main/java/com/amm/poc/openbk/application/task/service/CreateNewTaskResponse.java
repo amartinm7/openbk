@@ -16,4 +16,8 @@ public record CreateNewTaskResponse(Task task) {
     public String description() {
         return task.description().value();
     }
+
+    public int priority() {
+        return task.priority().value();
+    }
 }
