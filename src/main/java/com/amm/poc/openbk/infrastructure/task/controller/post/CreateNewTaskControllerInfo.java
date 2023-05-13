@@ -1,21 +1,25 @@
 package com.amm.poc.openbk.infrastructure.task.controller.post;
 
-import com.amm.poc.openbk.application.task.service.CreateNewTaskRequest;
-import com.amm.poc.openbk.application.task.service.CreateNewTaskResponse;
-import com.amm.poc.openbk.application.task.service.CreateNewTaskService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.net.URI;
-import java.net.URISyntaxException;
 
 @Tag(name = "CRUD task", description = "CRUD task")
 public interface CreateNewTaskControllerInfo {
-
+    @Operation(
+            summary = "Post a new Task on the system",
+            description = "Creates a new task"
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode = "201", content = {@Content(schema = @Schema(implementation = TaskHttpRequest.class), mediaType = "application/json")}),
+            @ApiResponse(responseCode = "404", content = {@Content(schema = @Schema())}),
+            @ApiResponse(responseCode = "500", content = {@Content(schema = @Schema())})
+    })
     ResponseEntity<TaskHttpResponse> execute(@RequestBody TaskHttpRequest httpRequest);
 }
+
