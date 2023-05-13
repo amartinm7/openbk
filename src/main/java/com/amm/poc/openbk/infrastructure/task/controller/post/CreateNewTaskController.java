@@ -14,7 +14,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 @RestController
-public class CreateNewTaskController {
+public class CreateNewTaskController implements CreateNewTaskControllerInfo {
 
     private final Logger LOGGER = LoggerFactory.getLogger(CreateNewTaskController.class);
 
@@ -25,6 +25,7 @@ public class CreateNewTaskController {
     }
 
     @PostMapping(path = "/v1/task", consumes = "application/json;charset=UTF-8")
+    @Override
     public ResponseEntity<TaskHttpResponse> execute(@RequestBody TaskHttpRequest httpRequest){
         try {
             CreateNewTaskResponse serviceResponse = service.execute(mapFrom(httpRequest));
