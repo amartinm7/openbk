@@ -34,3 +34,7 @@ These additional references should also help you:
 
 ## errors by default
 org.springframework.web.client.HttpClientErrorException$NotFound: 404 : "{"timestamp":1683831972150,"status":404,"error":"Not Found","path":"/v1/customer"}"
+
+
+## How expose openApi/swagger
+https://www.bezkoder.com/spring-boot-swagger-3/
