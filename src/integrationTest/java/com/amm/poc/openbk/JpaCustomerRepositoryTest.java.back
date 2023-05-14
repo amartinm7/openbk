@@ -1,6 +1,6 @@
 package com.amm.poc.openbk;
 
-import com.amm.poc.openbk.infrastructure.customer.repository.JpaCustomerRepository;
+import com.amm.poc.openbk.infrastructure.task.repository.JpaCustomerRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
