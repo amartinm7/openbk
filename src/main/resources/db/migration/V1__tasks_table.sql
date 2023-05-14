@@ -1,6 +1,8 @@
 CREATE
     EXTENSION IF NOT EXISTS "uuid-ossp";
 
+create extension hstore;
+
 DROP TABLE IF EXISTS tasks;
 
 CREATE TABLE tasks
