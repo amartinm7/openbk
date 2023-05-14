@@ -19,3 +19,8 @@ Content-Type: application/json
   "description": "lorem ipsum",
   "priority": 4
 }
+
+### PUT a task
+# @name putTask
+GET http://localhost:8000/v1/task/3deab62e-2fe2-4f30-aede-96484fa3f738
+Content-Type: application/json
