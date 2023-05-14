@@ -1,10 +1,8 @@
 package com.amm.poc.openbk.infrastructure.task.controller.post;
 
 import com.amm.poc.openbk.TaskFixtures;
-import com.amm.poc.openbk.application.task.service.CreateNewTaskResponse;
-import com.amm.poc.openbk.application.task.service.CreateNewTaskService;
-import com.amm.poc.openbk.infrastructure.task.controller.post.CreateNewTaskController;
-import com.amm.poc.openbk.infrastructure.task.controller.post.TaskHttpResponse;
+import com.amm.poc.openbk.application.task.service.post.CreateNewTaskResponse;
+import com.amm.poc.openbk.application.task.service.post.CreateNewTaskService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.http.HttpStatus;
@@ -23,7 +21,7 @@ class CreateNewTaskControllerTest {
     @Test
     public void shouldSaveATask() throws URISyntaxException {
         CreateNewTaskResponse mockedResponse = new CreateNewTaskResponse(TaskFixtures.ANY_TASK);
-        Mockito.when(service.execute(TaskFixtures.ANY_TASK_REQUEST)).thenReturn(mockedResponse);
+        Mockito.when(service.execute(TaskFixtures.ANY_CREATE_NEW_TASK_REQUEST)).thenReturn(mockedResponse);
         URI expectedResponse = getLocation();
         ResponseEntity<TaskHttpResponse> response = controller.execute(TaskFixtures.HTTP_TASK_REQUEST);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);

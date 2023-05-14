@@ -9,7 +9,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@Tag(name = "CRUD task", description = "CRUD task")
+@Tag(name = "Create a new task", description = "Create a new task")
 public interface CreateNewTaskControllerInfo {
     @Operation(
             summary = "Post a new Task on the system",

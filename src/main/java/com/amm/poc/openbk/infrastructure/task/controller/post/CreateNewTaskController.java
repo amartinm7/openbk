@@ -1,8 +1,8 @@
 package com.amm.poc.openbk.infrastructure.task.controller.post;
 
-import com.amm.poc.openbk.application.task.service.CreateNewTaskRequest;
-import com.amm.poc.openbk.application.task.service.CreateNewTaskResponse;
-import com.amm.poc.openbk.application.task.service.CreateNewTaskService;
+import com.amm.poc.openbk.application.task.service.post.CreateNewTaskRequest;
+import com.amm.poc.openbk.application.task.service.post.CreateNewTaskResponse;
+import com.amm.poc.openbk.application.task.service.post.CreateNewTaskService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;

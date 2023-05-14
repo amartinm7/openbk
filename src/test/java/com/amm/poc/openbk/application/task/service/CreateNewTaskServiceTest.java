@@ -1,6 +1,8 @@
 package com.amm.poc.openbk.application.task.service;
 
 import com.amm.poc.openbk.TaskFixtures;
+import com.amm.poc.openbk.application.task.service.post.CreateNewTaskResponse;
+import com.amm.poc.openbk.application.task.service.post.CreateNewTaskService;
 import com.amm.poc.openbk.domain.task.TaskRepository;
 import com.amm.poc.openbk.infrastructure._boostrap.UUIDService;
 import org.junit.jupiter.api.Test;
@@ -21,7 +23,7 @@ class CreateNewTaskServiceTest {
         Mockito.when(taskRepository.save(TaskFixtures.ANY_TASK)).thenReturn(TaskFixtures.ANY_TASK);
         Mockito.when(uuidService.randomUUID()).thenReturn(TaskFixtures.ANY_UUID);
         CreateNewTaskResponse expectedResponse = new CreateNewTaskResponse(TaskFixtures.ANY_TASK);
-        CreateNewTaskResponse createNewTaskResponse = createNewTaskService.execute(TaskFixtures.ANY_TASK_REQUEST);
+        CreateNewTaskResponse createNewTaskResponse = createNewTaskService.execute(TaskFixtures.ANY_CREATE_NEW_TASK_REQUEST);
         assertThat(createNewTaskResponse).isEqualTo(expectedResponse);
     }
 }
