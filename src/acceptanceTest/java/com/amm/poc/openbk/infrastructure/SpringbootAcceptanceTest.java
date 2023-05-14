@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.client.RestTemplate;
+import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.containers.wait.strategy.Wait;
 
@@ -38,25 +39,10 @@ public class SpringbootAcceptanceTest {
     @Autowired
     protected JdbcTemplate jdbcTemplate;
 
-    private static final int CONTAINER_PORT = 5432;
-    private static final int LOCAL_PORT = 5432;
-
-    private static final Consumer<CreateContainerCmd> portBinding = cmd -> cmd.withHostConfig(
-            new HostConfig().withPortBindings(
-                    new PortBinding(Ports.Binding.bindPort(LOCAL_PORT), new ExposedPort(CONTAINER_PORT))
-            )
-    );
-
     static {
-        new PostgreSQLContainer("postgres:14.5")
-                .withDatabaseName("myopenbk")
-                .withUsername("userdb")
-                .withPassword("passdb")
-                .withCreateContainerCmdModifier(portBinding)
-                .waitingFor(Wait.forListeningPort())
-                .waitingFor(Wait.forLogMessage(".*database system is ready to accept connections.*\\n", 2))
-                .start();
-
+        MyDockerContainer dockerContainer = new MyDockerContainer();
+        dockerContainer.start();
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> dockerContainer.stop()));
     }
 
     private final String FIND_BY_ID = "SELECT * FROM TASKS WHERE 1 = 1";
