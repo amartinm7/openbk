@@ -1,4 +1,4 @@
-package com.amm.poc.openbk.infrastructure.task.controller.post;
+package com.amm.poc.openbk.infrastructure.task.controller;
 
 import com.amm.poc.openbk.domain.task.Task;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

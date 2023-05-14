@@ -4,8 +4,8 @@ import com.amm.poc.openbk.application.task.service.patch.UpdateTaskRequest;
 import com.amm.poc.openbk.application.task.service.patch.UpdateTaskResponse;
 import com.amm.poc.openbk.application.task.service.post.CreateNewTaskRequest;
 import com.amm.poc.openbk.domain.task.Task;
-import com.amm.poc.openbk.infrastructure.task.controller.post.TaskHttpRequest;
-import com.amm.poc.openbk.infrastructure.task.controller.post.TaskHttpResponse;
+import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpRequest;
+import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpResponse;
 import com.amm.poc.openbk.infrastructure.task.repository.JpaTask;
 
 import java.util.UUID;

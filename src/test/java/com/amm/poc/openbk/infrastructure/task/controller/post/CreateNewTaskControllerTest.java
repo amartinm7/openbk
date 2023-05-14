@@ -3,6 +3,7 @@ package com.amm.poc.openbk.infrastructure.task.controller.post;
 import com.amm.poc.openbk.TaskFixtures;
 import com.amm.poc.openbk.application.task.service.post.CreateNewTaskResponse;
 import com.amm.poc.openbk.application.task.service.post.CreateNewTaskService;
+import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpResponse;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.http.HttpStatus;

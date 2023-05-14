@@ -1,5 +1,7 @@
 package com.amm.poc.openbk.infrastructure.task.controller.post;
 
+import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpRequest;
+import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

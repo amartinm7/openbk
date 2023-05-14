@@ -1,8 +1,7 @@
 package com.amm.poc.openbk.infrastructure.task.controller.patch;
 
-import com.amm.poc.openbk.TaskFixtures;
 import com.amm.poc.openbk.application.task.service.patch.UpdateTaskService;
-import com.amm.poc.openbk.infrastructure.task.controller.post.TaskHttpResponse;
+import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpResponse;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

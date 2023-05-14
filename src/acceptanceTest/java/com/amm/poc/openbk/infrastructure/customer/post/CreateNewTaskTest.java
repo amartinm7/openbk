@@ -1,8 +1,8 @@
 package com.amm.poc.openbk.infrastructure.customer.post;
 
 import com.amm.poc.openbk.infrastructure.SpringbootAcceptanceTest;
-import com.amm.poc.openbk.infrastructure.task.controller.post.TaskHttpRequest;
-import com.amm.poc.openbk.infrastructure.task.controller.post.TaskHttpResponse;
+import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpRequest;
+import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.web.server.LocalServerPort;
