@@ -19,7 +19,7 @@ public class JpaTaskRepository implements TaskRepository {
 
     @Override
     public Task update(Task task) {
-        return null;
+        return save(task);
     }
 
     private JpaTask jpaTaskFrom(Task task) {

@@ -20,7 +20,7 @@ class CreateNewTaskControllerTest {
     private final CreateNewTaskController controller = new CreateNewTaskController(service);
 
     @Test
-    public void shouldSaveATask() throws URISyntaxException {
+    public void should_save_a_task() throws URISyntaxException {
         CreateNewTaskResponse mockedResponse = new CreateNewTaskResponse(TaskFixtures.ANY_TASK);
         Mockito.when(service.execute(TaskFixtures.ANY_CREATE_NEW_TASK_REQUEST)).thenReturn(mockedResponse);
         URI expectedResponse = getLocation();

@@ -8,9 +8,7 @@ import org.mockito.Mockito;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class UpdateTaskServiceTest {
-
     private UpdateTaskResponse expected = TaskFixtures.ANY_UPDATE_TASK_RESPONSE;
-
     private TaskRepository repository = Mockito.mock(TaskRepository.class);
     private final UpdateTaskService updateTaskService = new UpdateTaskService(repository);
 

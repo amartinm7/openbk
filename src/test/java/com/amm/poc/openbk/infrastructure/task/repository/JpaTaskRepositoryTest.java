@@ -15,9 +15,16 @@ class JpaTaskRepositoryTest {
     private final TaskRepository taskRepository = new JpaTaskRepository(listCrudJpaTaskRepository);
 
     @Test
-    public void shouldSaveATask() {
+    public void should_save_a_task() {
         Mockito.when(listCrudJpaTaskRepository.save(TaskFixtures.ANY_JPA_TASK)).thenReturn(TaskFixtures.ANY_JPA_TASK);
         Task taskResponse = taskRepository.save(TaskFixtures.ANY_TASK);
         assertThat(taskResponse).isEqualTo(TaskFixtures.ANY_TASK);
+    }
+
+    @Test
+    public void should_update_a_task() {
+        Mockito.when(listCrudJpaTaskRepository.save(TaskFixtures.ANY_JPA_TASK)).thenReturn(TaskFixtures.ANY_JPA_TASK);
+        Task response = taskRepository.update(TaskFixtures.ANY_TASK);
+        assertThat(response).isEqualTo(TaskFixtures.ANY_TASK);
     }
 }

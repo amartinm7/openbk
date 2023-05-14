@@ -19,7 +19,7 @@ class CreateNewTaskServiceTest {
     private final CreateNewTaskService createNewTaskService = new CreateNewTaskService(taskRepository, uuidService);
 
     @Test
-    public void shouldSaveATask() {
+    public void should_save_a_task() {
         Mockito.when(taskRepository.save(TaskFixtures.ANY_TASK)).thenReturn(TaskFixtures.ANY_TASK);
         Mockito.when(uuidService.randomUUID()).thenReturn(TaskFixtures.ANY_UUID);
         CreateNewTaskResponse expectedResponse = new CreateNewTaskResponse(TaskFixtures.ANY_TASK);
