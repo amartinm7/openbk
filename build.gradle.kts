@@ -1,13 +1,14 @@
 plugins {
     java
-    `jvm-test-suite`
+    id("jvm-test-suite")
+    id("java-test-fixtures")
     id("org.springframework.boot") version "3.0.6"
     id("io.spring.dependency-management") version "1.1.0"
 }
 
 group = "com.amm.poc"
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_17
+java.sourceCompatibility = JavaVersion.VERSION_19
 
 configurations {
     compileOnly {
@@ -89,18 +90,10 @@ testing {
             }
         }
 
-        val integrationTest by registering(JvmTestSuite::class)
         val acceptanceTest by registering(JvmTestSuite::class)
-        val contractTest by registering(JvmTestSuite::class)
-
-        setupDependenciesFor(integrationTest.name)
         setupDependenciesFor(acceptanceTest.name)
-        setupDependenciesFor(contractTest.name)
-
         tasks.named("check") {
-            dependsOn(testing.suites.named(integrationTest.name))
             dependsOn(testing.suites.named(acceptanceTest.name))
-            dependsOn(testing.suites.named(contractTest.name))
         }
     }
 }

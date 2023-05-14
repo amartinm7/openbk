@@ -33,7 +33,7 @@ with the `sdk` tool, list the installed versions
 ```bash
 sdk list java
 sdk install java 17.0.6-amzn
-sdk default java 17.0.6-amzn
+sdk default java 19.0.2-amzn
 
 # temporally only works in the current term 
 sdk use java 17.0.6-amzn 

@@ -1,6 +1,7 @@
 package com.amm.poc.openbk.infrastructure._boostrap;
 
-import com.amm.poc.openbk.application.task.service.post.CreateNewTaskService;
+import com.amm.poc.openbk.application.task.service.update.UpdateTaskService;
+import com.amm.poc.openbk.application.task.service.create.CreateNewTaskService;
 import com.amm.poc.openbk.domain.task.TaskRepository;
 import com.amm.poc.openbk.infrastructure.task.repository.ListCrudJpaTaskRepository;
 import com.amm.poc.openbk.infrastructure.task.repository.JpaTaskRepository;
@@ -18,5 +19,10 @@ public class TaskConfiguration {
     @Bean
     public CreateNewTaskService createNewTaskService(TaskRepository taskRepository, UUIDService uuidService) {
         return new CreateNewTaskService(taskRepository, uuidService);
+    }
+
+    @Bean
+    public UpdateTaskService updateTaskService(TaskRepository taskRepository) {
+        return new UpdateTaskService(taskRepository);
     }
 }

@@ -18,4 +18,8 @@ public record TaskHttpResponse(
                 task.uuid(), task.name().value(), task.description().value(), task.priority().value()
         );
     }
+
+    public TaskHttpResponse copyWith(UUID id) {
+        return new TaskHttpResponse (id, this.name, this.description, this.priority);
+    }
 }

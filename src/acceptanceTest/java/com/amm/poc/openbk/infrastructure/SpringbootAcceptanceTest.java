@@ -43,5 +43,5 @@ public class SpringbootAcceptanceTest {
                     .withUsername("userdb")
                     .withPassword("passdb")
                     .withCreateContainerCmdModifier(portBinding)
-                    .waitingFor(Wait.forLogMessage(".*Ready to accept connections.*\\n", 1));
+                    .waitingFor(Wait.forLogMessage(".*database system is ready to accept connections.*\\n", 2));
 }
