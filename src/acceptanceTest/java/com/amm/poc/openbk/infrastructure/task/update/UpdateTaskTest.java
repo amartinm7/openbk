@@ -16,7 +16,7 @@ public class UpdateTaskTest extends SpringbootAcceptanceTest {
 
     @Test
     public void should_update_a_task() {
-        HttpEntity httpRequest = new HttpEntity<TaskHttpRequest>(TaskFixtures.ANY_HTTP_TASK_REQUEST);
+        HttpEntity<TaskHttpRequest> httpRequest = getHttpEntity(TaskFixtures.ANY_HTTP_TASK_REQUEST);
         ResponseEntity<TaskHttpResponse> response = restTemplate.exchange(
                 "http://localhost:%d/v1/task/%s".formatted(port, TaskFixtures.ANY_UUID_STR),
                 HttpMethod.PUT,

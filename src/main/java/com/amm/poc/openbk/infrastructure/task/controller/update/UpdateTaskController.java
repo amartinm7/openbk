@@ -25,7 +25,7 @@ public class UpdateTaskController implements UpdateTaskControllerInfo {
         this.updateTaskService = updateTaskService;
     }
 
-    @PutMapping("/v1/task/{uuid}")
+    @PutMapping(path = "/v1/task/{uuid}", consumes = "application/json;charset=UTF-8")
     @Override
     public ResponseEntity<TaskHttpResponse> execute(
             @PathVariable String uuid,

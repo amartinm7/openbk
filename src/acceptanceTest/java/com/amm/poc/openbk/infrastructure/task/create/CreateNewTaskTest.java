@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CreateNewTaskTest extends SpringbootAcceptanceTest {
     @Test
     public void should_create_a_new_task() {
-        HttpEntity httpRequest = new HttpEntity<TaskHttpRequest>(TaskFixtures.ANY_HTTP_TASK_REQUEST);
+        HttpEntity<TaskHttpRequest> httpRequest = getHttpEntity(TaskFixtures.ANY_HTTP_TASK_REQUEST);
         ResponseEntity<TaskHttpResponse> response = restTemplate.postForEntity("http://localhost:%d/v1/task".formatted(port), httpRequest, TaskHttpResponse.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
         assertThat(response.getHeaders().get("Location").get(0)).startsWith("/v1/task/");

@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.web.client.RestTemplate;
 
@@ -53,5 +56,30 @@ public class SpringbootAcceptanceTest {
                         "VALUES (:uuid::uuid, :name, :description, :priority, now(), now())",
                 mapper
         );
+    }
+
+    protected void deleteTask() {
+        JpaTask request = TaskFixtures.ANY_JPA_TASK;
+        Map<String, Object> mapper = Map.ofEntries(
+                entry("uuid", request.getUuid())
+        );
+        jdbcTemplate.update(
+                "DELETE FROM TASKS WHERE uuid = :uuid::uuid",
+                mapper
+        );
+    }
+
+    protected HttpEntity getDefaultHttpEntity () {
+        HttpHeaders requestHeaders = new HttpHeaders();
+        requestHeaders.add("Accept", MediaType.APPLICATION_JSON_VALUE);
+        requestHeaders.add("Content-Type", MediaType.APPLICATION_JSON_VALUE);
+        return new HttpEntity<>(requestHeaders);
+    }
+
+    protected <T> HttpEntity<T> getHttpEntity (T request) {
+        HttpHeaders requestHeaders = new HttpHeaders();
+        requestHeaders.add("Accept", MediaType.APPLICATION_JSON_VALUE);
+        requestHeaders.add("Content-Type", MediaType.APPLICATION_JSON_VALUE);
+        return new HttpEntity<T>(request, requestHeaders);
     }
 }
