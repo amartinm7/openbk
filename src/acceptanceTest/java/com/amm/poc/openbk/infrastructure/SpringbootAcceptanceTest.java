@@ -1,22 +1,17 @@
 package com.amm.poc.openbk.infrastructure;
 
-import com.github.dockerjava.api.command.CreateContainerCmd;
-import com.github.dockerjava.api.model.ExposedPort;
-import com.github.dockerjava.api.model.HostConfig;
-import com.github.dockerjava.api.model.PortBinding;
-import com.github.dockerjava.api.model.Ports;
+import com.amm.poc.openbk.TaskFixtures;
+import com.amm.poc.openbk.infrastructure.task.repository.JpaTask;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.web.client.RestTemplate;
-import org.testcontainers.containers.GenericContainer;
-import org.testcontainers.containers.PostgreSQLContainer;
-import org.testcontainers.containers.wait.strategy.Wait;
 
-import java.util.List;
-import java.util.function.Consumer;
+import java.util.Map;
+
+import static java.util.Map.entry;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SpringbootAcceptanceTest {
@@ -37,7 +32,7 @@ public class SpringbootAcceptanceTest {
     protected RestTemplate restTemplate;
 
     @Autowired
-    protected JdbcTemplate jdbcTemplate;
+    protected NamedParameterJdbcTemplate jdbcTemplate;
 
     static {
         MyDockerContainer dockerContainer = new MyDockerContainer();
@@ -45,10 +40,18 @@ public class SpringbootAcceptanceTest {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> dockerContainer.stop()));
     }
 
-    private final String FIND_BY_ID = "SELECT * FROM TASKS WHERE 1 = 1";
-
-    protected void executeQuery() {
-        List list = jdbcTemplate.queryForList(FIND_BY_ID);
+    protected void insertTask() {
+        JpaTask request = TaskFixtures.ANY_JPA_TASK;
+        Map<String, Object> mapper = Map.ofEntries(
+                entry("uuid", request.getUuid()),
+                entry("name", request.getName()),
+                entry("description", request.getDescription()),
+                entry("priority", request.getPriority())
+        );
+        jdbcTemplate.update(
+                "INSERT INTO TASKS (uuid, name, description, priority, created_at, modified_at) " +
+                        "VALUES (:uuid::uuid, :name, :description, :priority, now(), now())",
+                mapper
+        );
     }
-
 }
