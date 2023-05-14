@@ -29,11 +29,11 @@ dependencies {
     implementation("org.springframework.data:spring-data-rest-hal-explorer")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     implementation("org.springframework.boot:spring-boot-starter-validation")
-    // implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.3")
 
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    // testImplementation("org.flywaydb.flyway-test-extensions:flyway-spring5-test:9.5.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.3")
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.9.3")
     testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.9.3")

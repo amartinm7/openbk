@@ -3,6 +3,7 @@ package com.amm.poc.openbk.infrastructure.customer.patch;
 import com.amm.poc.openbk.infrastructure.SpringbootAcceptanceTest;
 import com.amm.poc.openbk.infrastructure.task.controller.post.TaskHttpRequest;
 import com.amm.poc.openbk.infrastructure.task.controller.post.TaskHttpResponse;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.web.server.LocalServerPort;
@@ -16,7 +17,7 @@ import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Testcontainers
+
 public class UpdateTaskTest extends SpringbootAcceptanceTest {
 
     @Autowired
