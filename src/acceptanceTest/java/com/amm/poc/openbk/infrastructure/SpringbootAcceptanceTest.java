@@ -9,15 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.client.RestTemplate;
-import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.containers.wait.strategy.Wait;
-import org.testcontainers.junit.jupiter.Container;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.util.function.Consumer;
 
-@Testcontainers
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SpringbootAcceptanceTest {
 
@@ -41,12 +37,16 @@ public class SpringbootAcceptanceTest {
                     new PortBinding(Ports.Binding.bindPort(LOCAL_PORT), new ExposedPort(CONTAINER_PORT))
             )
     );
-    @Container
-    protected static GenericContainer postgresqlContainer =
-            new PostgreSQLContainer("postgres:14.5")
-                    .withDatabaseName("myopenbk")
-                    .withUsername("userdb")
-                    .withPassword("passdb")
-                    .withCreateContainerCmdModifier(portBinding)
-                    .waitingFor(Wait.forLogMessage(".*database system is ready to accept connections.*\\n", 2));
+
+    static {
+        new PostgreSQLContainer("postgres:14.5")
+                .withDatabaseName("myopenbk")
+                .withUsername("userdb")
+                .withPassword("passdb")
+                .withCreateContainerCmdModifier(portBinding)
+                .waitingFor(Wait.forListeningPort())
+                .waitingFor(Wait.forLogMessage(".*database system is ready to accept connections.*\\n", 2))
+                .start();
+
+    }
 }

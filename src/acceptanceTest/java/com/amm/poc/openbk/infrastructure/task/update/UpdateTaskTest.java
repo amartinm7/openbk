@@ -4,6 +4,8 @@ import com.amm.poc.openbk.TaskFixtures;
 import com.amm.poc.openbk.infrastructure.SpringbootAcceptanceTest;
 import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpRequest;
 import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpResponse;
+import org.flywaydb.test.annotation.FlywayTest;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.web.server.LocalServerPort;
@@ -24,7 +26,7 @@ public class UpdateTaskTest extends SpringbootAcceptanceTest {
     private int port;
 
     @Test
-    public void should_update_a_task() throws InterruptedException {
+    public void should_update_a_task() {
         HttpEntity httpRequest = new HttpEntity<TaskHttpRequest>(TaskFixtures.ANY_HTTP_TASK_REQUEST);
         ResponseEntity<TaskHttpResponse> response = restTemplate.exchange(
                 "http://localhost:%d/v1/task/%s".formatted(port, TaskFixtures.ANY_UUID_STR),
