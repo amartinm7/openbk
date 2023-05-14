@@ -7,7 +7,8 @@ curl -X 'POST' \
   -H 'Content-Type: application/json' \
   -d "{
       \"name\": \"task#1\",
-      \"description\": \"lorem ipsum\"
+      \"description\": \"lorem ipsum\",
+      \"priority\": \"10\"
      }"
 printf "\nmessage sent"
 

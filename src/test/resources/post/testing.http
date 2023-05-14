@@ -1,9 +1,0 @@
-### POST a task
-# @name postTask
-POST http://localhost:8000/v1/task
-Content-Type: application/json
-
-{
-  "name": "task#1",
-  "description": "lorem ipsum"
-}

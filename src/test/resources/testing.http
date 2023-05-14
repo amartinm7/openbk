@@ -1,0 +1,21 @@
+### POST a task
+# @name postTask
+POST http://localhost:8000/v1/task
+Content-Type: application/json
+
+{
+  "name": "task#1",
+  "description": "lorem ipsum",
+  "priority": 10
+}
+
+### PUT a task
+# @name putTask
+PUT http://localhost:8000/v1/task/3deab62e-2fe2-4f30-aede-96484fa3f738
+Content-Type: application/json
+
+{
+  "name": "task#1",
+  "description": "lorem ipsum",
+  "priority": 4
+}
