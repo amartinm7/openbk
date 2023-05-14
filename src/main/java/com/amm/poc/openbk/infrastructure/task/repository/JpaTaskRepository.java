@@ -17,6 +17,11 @@ public class JpaTaskRepository implements TaskRepository {
         return task;
     }
 
+    @Override
+    public Task update(Task task) {
+        return null;
+    }
+
     private JpaTask jpaTaskFrom(Task task) {
         return new JpaTask(
                 task.uuid(),
