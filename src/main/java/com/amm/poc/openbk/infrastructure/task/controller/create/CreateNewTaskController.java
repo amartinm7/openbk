@@ -30,10 +30,11 @@ public class CreateNewTaskController implements CreateNewTaskControllerInfo {
     @Override
     public ResponseEntity<TaskHttpResponse> execute(@RequestBody TaskHttpRequest httpRequest){
         try {
+            LOGGER.info(">>> CreateNewTaskController: Creating a new task %s".formatted(httpRequest));
             CreateNewTaskResponse response = service.execute(mapFrom(httpRequest));
             return ResponseEntity.created(getLocationFrom(response)).body(mapFrom(response));
         } catch (URISyntaxException e) {
-            LOGGER.error("Internal Server Error: impossible return response");
+            LOGGER.error(">>> CreateNewTaskController: Internal Server Error: impossible return response");
             return ResponseEntity.internalServerError().build();
         }
     }
