@@ -24,9 +24,10 @@ class CreateNewTaskControllerTest {
         CreateNewTaskResponse mockedResponse = new CreateNewTaskResponse(TaskFixtures.ANY_TASK);
         Mockito.when(service.execute(TaskFixtures.ANY_CREATE_NEW_TASK_REQUEST)).thenReturn(mockedResponse);
         URI expectedResponse = getLocation();
-        ResponseEntity<TaskHttpResponse> response = controller.execute(TaskFixtures.HTTP_TASK_REQUEST);
+        ResponseEntity<TaskHttpResponse> response = controller.execute(TaskFixtures.ANY_HTTP_TASK_REQUEST);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
         assertThat(response.getHeaders().get("Location").get(0)).isEqualTo(expectedResponse.toString());
+        assertThat(response.getBody()).isEqualTo(TaskFixtures.ANY_HTTP_TASK_RESPONSE);
     }
 
     private URI getLocation() throws URISyntaxException {

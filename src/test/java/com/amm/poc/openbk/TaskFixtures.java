@@ -21,7 +21,7 @@ public class TaskFixtures {
     public static final CreateNewTaskRequest ANY_CREATE_NEW_TASK_REQUEST = new CreateNewTaskRequest(taskName, taskDescription, taskPriority);
     public static final UpdateTaskRequest ANY_UPDATE_TASK_REQUEST = new UpdateTaskRequest(ANY_TASK);
     public static final UpdateTaskResponse ANY_UPDATE_TASK_RESPONSE = new UpdateTaskResponse(ANY_TASK);
-    public static final TaskHttpRequest HTTP_TASK_REQUEST = new TaskHttpRequest(taskName, taskDescription, taskPriority);
-    public static final TaskHttpResponse HTTP_TASK_RESPONSE = TaskHttpResponse.of(ANY_TASK);
+    public static final TaskHttpRequest ANY_HTTP_TASK_REQUEST = new TaskHttpRequest(taskName, taskDescription, taskPriority);
+    public static final TaskHttpResponse ANY_HTTP_TASK_RESPONSE = TaskHttpResponse.of(ANY_TASK);
 
 }

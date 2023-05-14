@@ -18,8 +18,8 @@ class UpdateTaskControllerTest {
     @Test
     public void should_update_a_task() {
         Mockito.when(updateTaskService.execute(ANY_UPDATE_TASK_REQUEST)).thenReturn(ANY_UPDATE_TASK_RESPONSE);
-        ResponseEntity<TaskHttpResponse> response = updateTaskController.execute(UUID_STR, HTTP_TASK_REQUEST);
+        ResponseEntity<TaskHttpResponse> response = updateTaskController.execute(UUID_STR, ANY_HTTP_TASK_REQUEST);
         Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.ACCEPTED);
-        Assertions.assertThat(response.getBody()).isEqualTo(HTTP_TASK_RESPONSE);
+        Assertions.assertThat(response.getBody()).isEqualTo(ANY_HTTP_TASK_RESPONSE);
     }
 }

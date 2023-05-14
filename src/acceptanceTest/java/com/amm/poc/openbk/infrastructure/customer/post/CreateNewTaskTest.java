@@ -28,5 +28,6 @@ public class CreateNewTaskTest extends SpringbootAcceptanceTest {
         ResponseEntity<TaskHttpResponse> response = restTemplate.postForEntity("http://localhost:%d/v1/task".formatted(port), httpRequest, TaskHttpResponse.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
         assertThat(response.getHeaders().get("Location").get(0)).startsWith("/v1/task/");
+        // assertThat(response.getBody()).isEqualTo(TaskFixtures.ANY_HTTP_TASK_RESPONSE);
     }
 }

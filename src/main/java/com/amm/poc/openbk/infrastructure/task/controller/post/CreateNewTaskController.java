@@ -30,8 +30,8 @@ public class CreateNewTaskController implements CreateNewTaskControllerInfo {
     @Override
     public ResponseEntity<TaskHttpResponse> execute(@RequestBody TaskHttpRequest httpRequest){
         try {
-            CreateNewTaskResponse serviceResponse = service.execute(mapFrom(httpRequest));
-            return ResponseEntity.created(getLocationFrom(serviceResponse)).build();
+            CreateNewTaskResponse response = service.execute(mapFrom(httpRequest));
+            return ResponseEntity.created(getLocationFrom(response)).body(mapFrom(response));
         } catch (URISyntaxException e) {
             LOGGER.error("Internal Server Error: impossible return response");
             return ResponseEntity.internalServerError().build();
@@ -43,12 +43,7 @@ public class CreateNewTaskController implements CreateNewTaskControllerInfo {
     }
 
     private TaskHttpResponse mapFrom(CreateNewTaskResponse serviceResponse) {
-        return new TaskHttpResponse(
-                serviceResponse.uuid(),
-                serviceResponse.name(),
-                serviceResponse.description(),
-                serviceResponse.priority()
-        );
+        return TaskHttpResponse.of(serviceResponse.task());
     }
 
     private URI getLocationFrom(CreateNewTaskResponse serviceResponse) throws URISyntaxException {
