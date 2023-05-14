@@ -3,6 +3,9 @@ package com.amm.poc.openbk.infrastructure.task.repository;
 import com.amm.poc.openbk.domain.task.Task;
 import com.amm.poc.openbk.domain.task.TaskRepository;
 
+import java.util.Optional;
+import java.util.UUID;
+
 public class JpaTaskRepository implements TaskRepository {
 
     private final ListCrudJpaTaskRepository listCrudJpaTaskRepository;
@@ -22,6 +25,12 @@ public class JpaTaskRepository implements TaskRepository {
         return save(task);
     }
 
+    @Override
+    public Task findBy(UUID uuid) {
+        Optional<JpaTask> response = listCrudJpaTaskRepository.findById(uuid);
+        return taskFrom(response.orElseThrow());
+    }
+
     private JpaTask jpaTaskFrom(Task task) {
         return new JpaTask(
                 task.uuid(),
@@ -29,5 +38,9 @@ public class JpaTaskRepository implements TaskRepository {
                 task.description().value(),
                 task.priority().value()
         );
+    }
+
+    private Task taskFrom (JpaTask jpaTask) {
+        return Task.of(jpaTask.getUuid(), jpaTask.getName(), jpaTask.getDescription(), jpaTask.getPriority());
     }
 }

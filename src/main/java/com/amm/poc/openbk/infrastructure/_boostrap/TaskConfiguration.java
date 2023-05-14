@@ -1,11 +1,11 @@
 package com.amm.poc.openbk.infrastructure._boostrap;
 
 import com.amm.poc.openbk.application.task.retrieve.RetrieveTaskService;
-import com.amm.poc.openbk.application.task.service.update.UpdateTaskService;
 import com.amm.poc.openbk.application.task.service.create.CreateNewTaskService;
+import com.amm.poc.openbk.application.task.service.update.UpdateTaskService;
 import com.amm.poc.openbk.domain.task.TaskRepository;
-import com.amm.poc.openbk.infrastructure.task.repository.ListCrudJpaTaskRepository;
 import com.amm.poc.openbk.infrastructure.task.repository.JpaTaskRepository;
+import com.amm.poc.openbk.infrastructure.task.repository.ListCrudJpaTaskRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -28,7 +28,7 @@ public class TaskConfiguration {
     }
 
     @Bean
-    public RetrieveTaskService retrieveTaskService () {
-        return new RetrieveTaskService();
+    public RetrieveTaskService retrieveTaskService(TaskRepository taskRepository) {
+        return new RetrieveTaskService(taskRepository);
     }
 }
