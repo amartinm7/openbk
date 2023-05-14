@@ -1,4 +1,4 @@
-package com.amm.poc.openbk.application.task.service;
+package com.amm.poc.openbk.application.task.service.post;
 
 import com.amm.poc.openbk.domain.task.Task;
 
