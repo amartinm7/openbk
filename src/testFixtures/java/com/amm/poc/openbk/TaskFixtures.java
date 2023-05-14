@@ -1,5 +1,7 @@
 package com.amm.poc.openbk;
 
+import com.amm.poc.openbk.application.task.retrieve.RetrieveTaskRequest;
+import com.amm.poc.openbk.application.task.retrieve.RetrieveTaskResponse;
 import com.amm.poc.openbk.application.task.service.update.UpdateTaskRequest;
 import com.amm.poc.openbk.application.task.service.update.UpdateTaskResponse;
 import com.amm.poc.openbk.application.task.service.create.CreateNewTaskRequest;
@@ -21,6 +23,8 @@ public class TaskFixtures {
     public static final CreateNewTaskRequest ANY_CREATE_NEW_TASK_REQUEST = new CreateNewTaskRequest(taskName, taskDescription, taskPriority);
     public static final UpdateTaskRequest ANY_UPDATE_TASK_REQUEST = new UpdateTaskRequest(ANY_TASK);
     public static final UpdateTaskResponse ANY_UPDATE_TASK_RESPONSE = new UpdateTaskResponse(ANY_TASK);
+    public static final RetrieveTaskRequest ANY_RETRIEVE_TASK_REQUEST = new RetrieveTaskRequest(ANY_UUID);
+    public static final RetrieveTaskResponse ANY_RETRIEVE_TASK_RESPONSE = new RetrieveTaskResponse(ANY_TASK);
     public static final TaskHttpRequest ANY_HTTP_TASK_REQUEST = new TaskHttpRequest(taskName, taskDescription, taskPriority);
     public static final TaskHttpResponse ANY_HTTP_TASK_RESPONSE = TaskHttpResponse.of(ANY_TASK);
 

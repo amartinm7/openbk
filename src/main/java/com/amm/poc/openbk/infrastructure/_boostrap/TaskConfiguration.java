@@ -1,5 +1,6 @@
 package com.amm.poc.openbk.infrastructure._boostrap;
 
+import com.amm.poc.openbk.application.task.retrieve.RetrieveTaskService;
 import com.amm.poc.openbk.application.task.service.update.UpdateTaskService;
 import com.amm.poc.openbk.application.task.service.create.CreateNewTaskService;
 import com.amm.poc.openbk.domain.task.TaskRepository;
@@ -24,5 +25,10 @@ public class TaskConfiguration {
     @Bean
     public UpdateTaskService updateTaskService(TaskRepository taskRepository) {
         return new UpdateTaskService(taskRepository);
+    }
+
+    @Bean
+    public RetrieveTaskService retrieveTaskService () {
+        return new RetrieveTaskService();
     }
 }
