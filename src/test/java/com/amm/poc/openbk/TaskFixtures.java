@@ -5,6 +5,7 @@ import com.amm.poc.openbk.application.task.service.patch.UpdateTaskResponse;
 import com.amm.poc.openbk.application.task.service.post.CreateNewTaskRequest;
 import com.amm.poc.openbk.domain.task.Task;
 import com.amm.poc.openbk.infrastructure.task.controller.post.TaskHttpRequest;
+import com.amm.poc.openbk.infrastructure.task.controller.post.TaskHttpResponse;
 import com.amm.poc.openbk.infrastructure.task.repository.JpaTask;
 
 import java.util.UUID;
@@ -21,4 +22,6 @@ public class TaskFixtures {
     public static final UpdateTaskRequest ANY_UPDATE_TASK_REQUEST = new UpdateTaskRequest(ANY_TASK);
     public static final UpdateTaskResponse ANY_UPDATE_TASK_RESPONSE = new UpdateTaskResponse(ANY_TASK);
     public static final TaskHttpRequest HTTP_TASK_REQUEST = new TaskHttpRequest(taskName, taskDescription, taskPriority);
+    public static final TaskHttpResponse HTTP_TASK_RESPONSE = TaskHttpResponse.of(ANY_TASK);
+
 }

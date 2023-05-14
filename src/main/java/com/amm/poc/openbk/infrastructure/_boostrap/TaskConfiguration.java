@@ -1,6 +1,6 @@
 package com.amm.poc.openbk.infrastructure._boostrap;
 
-import com.amm.poc.openbk.application.task.service.CreateNewTaskService;
+import com.amm.poc.openbk.application.task.service.post.CreateNewTaskService;
 import com.amm.poc.openbk.domain.task.TaskRepository;
 import com.amm.poc.openbk.infrastructure.task.repository.ListCrudJpaTaskRepository;
 import com.amm.poc.openbk.infrastructure.task.repository.JpaTaskRepository;
