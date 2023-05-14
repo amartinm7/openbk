@@ -32,7 +32,7 @@ public class UpdateTaskController implements UpdateTaskControllerInfo {
             @RequestBody TaskHttpRequest httpRequest) {
         LOGGER.info(">>>UpdateTaskController: update task %s".formatted(httpRequest));
         UpdateTaskResponse response = updateTaskService.execute(mapFrom(uuid, httpRequest));
-        return ResponseEntity.accepted().body(mapFrom(response));
+        return ResponseEntity.ok(mapFrom(response));
     }
 
     private UpdateTaskRequest mapFrom(String uuid, TaskHttpRequest httpRequest) {

@@ -20,7 +20,7 @@ public interface UpdateTaskControllerInfo {
             description = "Update a given new task"
     )
     @ApiResponses({
-            @ApiResponse(responseCode = "202", content = {@Content(schema = @Schema(implementation = TaskHttpResponse.class), mediaType = "application/json")}),
+            @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = TaskHttpResponse.class), mediaType = "application/json")}),
             @ApiResponse(responseCode = "404", content = {@Content(schema = @Schema())}),
             @ApiResponse(responseCode = "500", content = {@Content(schema = @Schema())})
     })

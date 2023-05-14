@@ -23,7 +23,7 @@ public class UpdateTaskTest extends SpringbootAcceptanceTest {
                 httpRequest,
                 TaskHttpResponse.class
         );
-        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.ACCEPTED);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isEqualTo(TaskFixtures.ANY_HTTP_TASK_RESPONSE);
     }
 }
