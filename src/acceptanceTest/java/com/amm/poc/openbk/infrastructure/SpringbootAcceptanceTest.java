@@ -5,8 +5,10 @@ import com.github.dockerjava.api.model.ExposedPort;
 import com.github.dockerjava.api.model.HostConfig;
 import com.github.dockerjava.api.model.PortBinding;
 import com.github.dockerjava.api.model.Ports;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.web.client.RestTemplate;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.containers.wait.strategy.Wait;
@@ -27,6 +29,9 @@ public class SpringbootAcceptanceTest {
 
     @Value("${spring.datasource.password}")
     private static String dbPass;
+
+    @Autowired
+    protected RestTemplate restTemplate;
 
     private static final int CONTAINER_PORT = 5432;
     private static final int LOCAL_PORT = 5432;
