@@ -11,6 +11,8 @@ import com.amm.poc.openbk.domain.task.Task;
 import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpRequest;
 import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpResponse;
 import com.amm.poc.openbk.infrastructure.task.repository.JpaTask;
+import org.testcontainers.shaded.com.fasterxml.jackson.core.JsonProcessingException;
+import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.UUID;
 
@@ -32,4 +34,13 @@ public class TaskFixtures {
     public static final TaskHttpRequest ANY_HTTP_TASK_REQUEST = new TaskHttpRequest(taskName, taskDescription, taskPriority);
 
     public static final TaskHttpResponse ANY_HTTP_TASK_RESPONSE = TaskHttpResponse.of(ANY_TASK);
+    public static final String JSON_ANY_TASK_REQUEST = toJSON(ANY_HTTP_TASK_REQUEST);
+
+    private static <T> String toJSON (T object) {
+        try {
+            return new ObjectMapper().writeValueAsString(object);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
