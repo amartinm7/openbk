@@ -23,7 +23,6 @@ public class JpaTaskRepository implements TaskRepository {
     }
 
     @Override
-    @CacheEvict(value = "tasks", key = "#uuid")
     public Task update(Task task) {
         return save(task);
     }

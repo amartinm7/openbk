@@ -4,6 +4,7 @@ import com.amm.poc.openbk.TaskFixtures;
 import com.amm.poc.openbk.infrastructure.SpringbootAcceptanceTest;
 import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpRequest;
 import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpResponse;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -13,6 +14,12 @@ import org.springframework.http.ResponseEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class UpdateTaskTest extends SpringbootAcceptanceTest {
+
+    @BeforeEach
+    void setup() {
+        deleteTask();
+        insertTask();
+    }
 
     @Test
     public void should_update_a_task() {
