@@ -21,7 +21,11 @@ public class RetrieveTaskController implements RetrieveTaskControllerInfo {
         this.retrieveTaskService = retrieveTaskService;
     }
 
-    @GetMapping(path = "/v1/task/{uuid}", consumes = "application/json;charset=UTF-8")
+    @GetMapping(
+            path = "/v1/task/{uuid}",
+            consumes = "application/json;charset=UTF-8",
+            produces = "application/json;charset=UTF-8"
+    )
     @Override
     public ResponseEntity<TaskHttpResponse> execute(@PathVariable UUID uuid) {
         try {

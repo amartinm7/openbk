@@ -5,7 +5,6 @@ import com.amm.poc.openbk.infrastructure.SpringbootAcceptanceTest;
 import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +17,7 @@ public class DeleteTaskTest extends SpringbootAcceptanceTest {
     @BeforeEach
     void setup() {
         deleteTask();
-        insertTask();
+        createTask();
     }
 
     @Test

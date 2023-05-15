@@ -18,7 +18,7 @@ public class UpdateTaskTest extends SpringbootAcceptanceTest {
     @BeforeEach
     void setup() {
         deleteTask();
-        insertTask();
+        createTask();
     }
 
     @Test

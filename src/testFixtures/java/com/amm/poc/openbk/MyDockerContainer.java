@@ -1,4 +1,4 @@
-package com.amm.poc.openbk.infrastructure;
+package com.amm.poc.openbk;
 
 import com.github.dockerjava.api.command.CreateContainerCmd;
 import com.github.dockerjava.api.model.ExposedPort;

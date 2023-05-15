@@ -26,7 +26,11 @@ public class CreateNewTaskController implements CreateNewTaskControllerInfo {
         this.service = service;
     }
 
-    @PostMapping(path = "/v1/task", consumes = "application/json;charset=UTF-8")
+    @PostMapping(
+            path = "/v1/task",
+            consumes = "application/json;charset=UTF-8",
+            produces = "application/json;charset=UTF-8"
+    )
     @Override
     public ResponseEntity<TaskHttpResponse> execute(@RequestBody TaskHttpRequest httpRequest){
         try {

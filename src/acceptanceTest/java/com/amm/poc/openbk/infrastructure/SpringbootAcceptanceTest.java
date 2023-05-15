@@ -1,5 +1,6 @@
 package com.amm.poc.openbk.infrastructure;
 
+import com.amm.poc.openbk.MyDockerContainer;
 import com.amm.poc.openbk.TaskFixtures;
 import com.amm.poc.openbk.infrastructure.task.repository.JpaTask;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import java.util.Map;
 import static java.util.Map.entry;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class SpringbootAcceptanceTest {
+public abstract class SpringbootAcceptanceTest {
 
     @Value("${spring.datasource.dbname}")
     private String dbName;
@@ -43,7 +44,7 @@ public class SpringbootAcceptanceTest {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> dockerContainer.stop()));
     }
 
-    protected void insertTask() {
+    protected void createTask() {
         JpaTask request = TaskFixtures.ANY_JPA_TASK;
         Map<String, Object> mapper = Map.ofEntries(
                 entry("uuid", request.getUuid()),

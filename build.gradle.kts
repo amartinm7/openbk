@@ -46,6 +46,11 @@ dependencies {
     }
     testImplementation("org.testcontainers:junit-jupiter:1.18.1")
     testImplementation("org.testcontainers:postgresql:1.18.1")
+    testFixturesApi("org.springframework.boot:spring-boot-starter-data-jpa")
+    testFixturesApi("org.testcontainers:testcontainers:1.18.1") {
+        exclude(group = "org.slf4j", module = "slf4j-api")
+    }
+    testFixturesApi("org.testcontainers:postgresql:1.18.1")
 }
 
 tasks.withType<Test> {
@@ -90,9 +95,12 @@ testing {
         }
 
         val acceptanceTest by registering(JvmTestSuite::class)
+        val contractTest by registering(JvmTestSuite::class)
         setupDependenciesFor(acceptanceTest.name)
+        setupDependenciesFor(contractTest.name)
         tasks.named("check") {
             dependsOn(testing.suites.named(acceptanceTest.name))
+            dependsOn(testing.suites.named(contractTest.name))
         }
     }
 }
