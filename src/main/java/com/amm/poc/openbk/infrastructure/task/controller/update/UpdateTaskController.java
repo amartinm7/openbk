@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @RestController
 public class UpdateTaskController implements UpdateTaskControllerInfo {
 
@@ -28,14 +30,14 @@ public class UpdateTaskController implements UpdateTaskControllerInfo {
     @PutMapping(path = "/v1/task/{uuid}", consumes = "application/json;charset=UTF-8")
     @Override
     public ResponseEntity<TaskHttpResponse> execute(
-            @PathVariable String uuid,
+            @PathVariable UUID uuid,
             @RequestBody TaskHttpRequest httpRequest) {
         LOGGER.info(">>>UpdateTaskController: update task %s".formatted(httpRequest));
         UpdateTaskResponse response = updateTaskService.execute(mapFrom(uuid, httpRequest));
         return ResponseEntity.ok(mapFrom(response));
     }
 
-    private UpdateTaskRequest mapFrom(String uuid, TaskHttpRequest httpRequest) {
+    private UpdateTaskRequest mapFrom(UUID uuid, TaskHttpRequest httpRequest) {
         return new UpdateTaskRequest(Task.of(uuid, httpRequest.name(), httpRequest.description(), httpRequest.priority()));
     }
 

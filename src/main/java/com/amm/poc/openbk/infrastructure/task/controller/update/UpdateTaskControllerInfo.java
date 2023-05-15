@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.UUID;
+
 @Tag(name = "Update a given task", description = "Update a given task")
 public interface UpdateTaskControllerInfo {
 
@@ -25,7 +27,7 @@ public interface UpdateTaskControllerInfo {
             @ApiResponse(responseCode = "500", content = {@Content(schema = @Schema())})
     })
     ResponseEntity<TaskHttpResponse> execute(
-            @PathVariable String uuid,
+            @PathVariable UUID uuid,
             @RequestBody TaskHttpRequest httpRequest
     );
 }

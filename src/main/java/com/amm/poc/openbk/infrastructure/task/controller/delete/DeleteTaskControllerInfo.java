@@ -10,6 +10,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.UUID;
+
 @Tag(name = "Delete a new task", description = "Delete a new task")
 public interface DeleteTaskControllerInfo {
     @Operation(
@@ -21,5 +23,5 @@ public interface DeleteTaskControllerInfo {
             @ApiResponse(responseCode = "404", content = {@Content(schema = @Schema())}),
             @ApiResponse(responseCode = "500", content = {@Content(schema = @Schema())})
     })
-    public ResponseEntity<TaskHttpResponse> execute(@PathVariable String uuid);
+    public ResponseEntity<TaskHttpResponse> execute(@PathVariable UUID uuid);
 }

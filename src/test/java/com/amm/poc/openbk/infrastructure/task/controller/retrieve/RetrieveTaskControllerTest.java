@@ -9,18 +9,26 @@ import org.mockito.Mockito;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import static com.amm.poc.openbk.TaskFixtures.ANY_RETRIEVE_TASK_REQUEST;
-import static com.amm.poc.openbk.TaskFixtures.ANY_RETRIEVE_TASK_RESPONSE;
+import java.util.NoSuchElementException;
+
+import static com.amm.poc.openbk.TaskFixtures.*;
 
 class RetrieveTaskControllerTest {
     private RetrieveTaskService retrieveTaskService = Mockito.mock(RetrieveTaskService.class);
     private final RetrieveTaskController retrieveTaskController = new RetrieveTaskController(retrieveTaskService);
 
     @Test
-    void should_return_a_task_give_an_uuid() {
+    void should_return_a_task_given_an_uuid() {
         Mockito.when(retrieveTaskService.execute(ANY_RETRIEVE_TASK_REQUEST)).thenReturn(ANY_RETRIEVE_TASK_RESPONSE);
-        ResponseEntity<TaskHttpResponse> response = retrieveTaskController.execute(TaskFixtures.ANY_UUID_STR);
+        ResponseEntity<TaskHttpResponse> response = retrieveTaskController.execute(ANY_UUID);
         Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        Assertions.assertThat(response.getBody()).isEqualTo(TaskFixtures.ANY_HTTP_TASK_RESPONSE);
+        Assertions.assertThat(response.getBody()).isEqualTo(ANY_HTTP_TASK_RESPONSE);
+    }
+
+    @Test
+    void should_return_a_not_found_message_given_an_uuid() {
+        Mockito.when(retrieveTaskService.execute(ANY_RETRIEVE_TASK_REQUEST)).thenThrow(new NoSuchElementException("Element not exists"));
+        ResponseEntity<TaskHttpResponse> response = retrieveTaskController.execute(ANY_UUID);
+        Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
     }
 }

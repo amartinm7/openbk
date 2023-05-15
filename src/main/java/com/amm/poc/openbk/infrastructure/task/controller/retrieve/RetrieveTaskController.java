@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @RestController
@@ -22,9 +23,13 @@ public class RetrieveTaskController implements RetrieveTaskControllerInfo {
 
     @GetMapping(path = "/v1/task/{uuid}", consumes = "application/json;charset=UTF-8")
     @Override
-    public ResponseEntity<TaskHttpResponse> execute(@PathVariable String uuid) {
-        RetrieveTaskResponse response = retrieveTaskService.execute(new RetrieveTaskRequest(UUID.fromString(uuid)));
-        return ResponseEntity.ok(mapFrom(response));
+    public ResponseEntity<TaskHttpResponse> execute(@PathVariable UUID uuid) {
+        try {
+            RetrieveTaskResponse response = retrieveTaskService.execute(new RetrieveTaskRequest(uuid));
+            return ResponseEntity.ok(mapFrom(response));
+        } catch (NoSuchElementException ex) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     private TaskHttpResponse mapFrom(RetrieveTaskResponse response) {

@@ -20,6 +20,6 @@ public class CreateNewTaskService {
     }
 
     private Task taskFrom(CreateNewTaskRequest request) {
-        return Task.of(uuidService.randomUUID().toString(), request.name(), request.description(), request.priority());
+        return Task.of(uuidService.randomUUID(), request.name(), request.description(), request.priority());
     }
 }

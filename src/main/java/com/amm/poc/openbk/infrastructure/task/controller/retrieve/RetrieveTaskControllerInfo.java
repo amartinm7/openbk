@@ -10,6 +10,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.UUID;
+
 @Tag(name = "Retrieve a new task", description = "Retrieve a new task")
 public interface RetrieveTaskControllerInfo {
 
@@ -22,5 +24,5 @@ public interface RetrieveTaskControllerInfo {
             @ApiResponse(responseCode = "404", content = {@Content(schema = @Schema())}),
             @ApiResponse(responseCode = "500", content = {@Content(schema = @Schema())})
     })
-    ResponseEntity<TaskHttpResponse> execute(@PathVariable String uuid);
+    ResponseEntity<TaskHttpResponse> execute(@PathVariable UUID uuid);
 }

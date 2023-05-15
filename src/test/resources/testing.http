@@ -20,7 +20,12 @@ Content-Type: application/json
   "priority": 4
 }
 
-### PUT a task
+### GET a task
 # @name putTask
 GET http://localhost:8000/v1/task/3deab62e-2fe2-4f30-aede-96484fa3f738
+Content-Type: application/json
+
+### DELETE a task
+# @name deleteTask
+DELETE http://localhost:8000/v1/task/3deab62e-2fe2-4f30-aede-96484fa3f738
 Content-Type: application/json

@@ -3,15 +3,6 @@ package com.amm.poc.openbk.domain.task;
 import java.util.UUID;
 
 public record Task(UUID uuid, TaskNameVO name, TaskDescriptionVO description, TaskPriorityVO priority) {
-    public static Task of(String uuid, String name, String description, int priority) {
-        return of(
-                UUID.fromString(uuid),
-                name,
-                description,
-                priority
-        );
-    }
-
     public static Task of(UUID uuid, String name, String description, int priority) {
         return new Task(
                 uuid,
