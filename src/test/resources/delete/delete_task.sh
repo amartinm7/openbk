@@ -1,0 +1,14 @@
+#!/bin/bash
+
+printf "Task\n"
+curl -X 'DELETE' \
+  'http://localhost:8000/v1/task' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d "{
+      \"name\": \"task#1\",
+      \"description\": \"lorem ipsum\",
+      \"priority\": \"10\"
+     }"
+printf "\nmessage sent"
+
