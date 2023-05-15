@@ -9,11 +9,3 @@ services:
       POSTGRES_USER: userdb
       POSTGRES_PASSWORD: passdb
       POSTGRES_DB: myopenbk
-
-  myopenbk:
-    image: ms-openbk:latest
-    # build: .
-    ports:
-      - "8000:8000"
-    depends_on:
-      - database

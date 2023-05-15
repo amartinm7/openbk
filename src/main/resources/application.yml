@@ -1,9 +1,7 @@
-docker:
-  host: "${DOCKER_IP:localhost}"
 spring:
   datasource:
     driverClassName: org.postgresql.Driver
-    url: 'jdbc:postgresql://${docker.host}:5432/myopenbk'
+    url: 'jdbc:postgresql://localhost:5432/myopenbk'
     username: "userdb"
     password: "passdb"
     dbname: "myopenbk"
