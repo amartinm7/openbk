@@ -41,7 +41,25 @@ class JpaTaskRepositoryTest {
     }
 
     @Test
-    public void should_throw_an_exception_when_task_not_exists() {
+    public void should_throw_an_exception_when_task_not_exists_for_retriving() {
+        Mockito.when(
+                listCrudJpaTaskRepository.findById(ANY_UUID)
+        ).thenThrow(
+                new NoSuchElementException("Task don't exist for id [%s]".formatted(ANY_UUID))
+        );
+        assertThrows(NoSuchElementException.class, () -> taskRepository.findBy(ANY_UUID));
+    }
+
+    @Test
+    public void should_delete_a_task_by_uuid_() {
+        Mockito.when(listCrudJpaTaskRepository.findById(ANY_UUID)).thenReturn(Optional.of(TaskFixtures.ANY_JPA_TASK));
+        Mockito.doNothing().when(listCrudJpaTaskRepository).deleteById(ANY_UUID);
+        Task response = taskRepository.delete(ANY_UUID);
+        assertThat(response).isEqualTo(TaskFixtures.ANY_TASK);
+    }
+
+    @Test
+    public void should_throw_an_exception_when_task_not_exists_for_deleting() {
         Mockito.when(
                 listCrudJpaTaskRepository.findById(ANY_UUID)
         ).thenThrow(

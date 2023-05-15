@@ -33,7 +33,9 @@ public class JpaTaskRepository implements TaskRepository {
 
     @Override
     public Task delete(UUID uuid) {
-        return null;
+        Task task = findBy(uuid);
+        listCrudJpaTaskRepository.deleteById(uuid);
+        return task;
     }
 
     private JpaTask jpaTaskFrom(Task task) {
