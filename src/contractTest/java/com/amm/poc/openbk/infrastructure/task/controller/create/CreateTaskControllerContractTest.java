@@ -12,6 +12,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static com.amm.poc.openbk.TaskFixtures.*;
 import static org.hamcrest.CoreMatchers.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 public class CreateTaskControllerContractTest extends SpringbootContractTest {
@@ -31,5 +32,13 @@ public class CreateTaskControllerContractTest extends SpringbootContractTest {
                 .andExpect(jsonPath("$.name", is(TaskFixtures.ANY_HTTP_TASK_RESPONSE.name())))
                 .andExpect(jsonPath("$.description", is(TaskFixtures.ANY_HTTP_TASK_RESPONSE.description())))
                 .andExpect(jsonPath("$.priority", is(TaskFixtures.ANY_HTTP_TASK_RESPONSE.priority())));
+    }
+
+    @Test
+    public void should_retrieve_a_bad_request() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.post("/v1/task")
+                        .content("")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest());
     }
 }
