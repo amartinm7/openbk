@@ -1,5 +1,6 @@
 package com.amm.poc.openbk.infrastructure._boostrap;
 
+import com.amm.poc.openbk.application.task.delete.DeleteTaskService;
 import com.amm.poc.openbk.application.task.retrieve.RetrieveTaskService;
 import com.amm.poc.openbk.application.task.service.create.CreateNewTaskService;
 import com.amm.poc.openbk.application.task.service.update.UpdateTaskService;
@@ -8,6 +9,8 @@ import com.amm.poc.openbk.infrastructure.task.repository.JpaTaskRepository;
 import com.amm.poc.openbk.infrastructure.task.repository.ListCrudJpaTaskRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javax.swing.text.DefaultEditorKit;
 
 @Configuration
 public class TaskConfiguration {
@@ -30,5 +33,10 @@ public class TaskConfiguration {
     @Bean
     public RetrieveTaskService retrieveTaskService(TaskRepository taskRepository) {
         return new RetrieveTaskService(taskRepository);
+    }
+
+    @Bean
+    public DeleteTaskService deleteTaskService() {
+        return new DeleteTaskService();
     }
 }
