@@ -1,7 +1,7 @@
 package com.amm.poc.openbk.infrastructure.task.controller.delete;
 
 import com.amm.poc.openbk.TaskFixtures;
-import com.amm.poc.openbk.application.task.delete.DeleteTaskService;
+import com.amm.poc.openbk.application.task.service.delete.DeleteTaskService;
 import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpResponse;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;

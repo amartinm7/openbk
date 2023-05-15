@@ -1,7 +1,7 @@
 package com.amm.poc.openbk.infrastructure._boostrap;
 
-import com.amm.poc.openbk.application.task.delete.DeleteTaskService;
-import com.amm.poc.openbk.application.task.retrieve.RetrieveTaskService;
+import com.amm.poc.openbk.application.task.service.delete.DeleteTaskService;
+import com.amm.poc.openbk.application.task.service.retrieve.RetrieveTaskService;
 import com.amm.poc.openbk.application.task.service.create.CreateNewTaskService;
 import com.amm.poc.openbk.application.task.service.update.UpdateTaskService;
 import com.amm.poc.openbk.domain.task.TaskRepository;

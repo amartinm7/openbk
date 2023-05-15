@@ -1,4 +1,4 @@
-package com.amm.poc.openbk.application.task.retrieve;
+package com.amm.poc.openbk.application.task.service.retrieve;
 
 import com.amm.poc.openbk.domain.task.Task;
 import com.amm.poc.openbk.domain.task.TaskRepository;

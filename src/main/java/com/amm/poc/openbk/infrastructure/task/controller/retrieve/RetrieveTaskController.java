@@ -1,8 +1,8 @@
 package com.amm.poc.openbk.infrastructure.task.controller.retrieve;
 
-import com.amm.poc.openbk.application.task.retrieve.RetrieveTaskRequest;
-import com.amm.poc.openbk.application.task.retrieve.RetrieveTaskResponse;
-import com.amm.poc.openbk.application.task.retrieve.RetrieveTaskService;
+import com.amm.poc.openbk.application.task.service.retrieve.RetrieveTaskRequest;
+import com.amm.poc.openbk.application.task.service.retrieve.RetrieveTaskResponse;
+import com.amm.poc.openbk.application.task.service.retrieve.RetrieveTaskService;
 import com.amm.poc.openbk.infrastructure.task.controller.TaskHttpResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

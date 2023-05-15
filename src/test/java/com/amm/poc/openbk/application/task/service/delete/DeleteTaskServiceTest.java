@@ -1,6 +1,8 @@
-package com.amm.poc.openbk.application.task.delete;
+package com.amm.poc.openbk.application.task.service.delete;
 
 import com.amm.poc.openbk.TaskFixtures;
+import com.amm.poc.openbk.application.task.service.delete.DeleteTaskResponse;
+import com.amm.poc.openbk.application.task.service.delete.DeleteTaskService;
 import com.amm.poc.openbk.domain.task.TaskRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

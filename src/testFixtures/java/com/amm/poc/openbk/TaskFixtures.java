@@ -1,9 +1,9 @@
 package com.amm.poc.openbk;
 
-import com.amm.poc.openbk.application.task.delete.DeleteTaskRequest;
-import com.amm.poc.openbk.application.task.delete.DeleteTaskResponse;
-import com.amm.poc.openbk.application.task.retrieve.RetrieveTaskRequest;
-import com.amm.poc.openbk.application.task.retrieve.RetrieveTaskResponse;
+import com.amm.poc.openbk.application.task.service.delete.DeleteTaskRequest;
+import com.amm.poc.openbk.application.task.service.delete.DeleteTaskResponse;
+import com.amm.poc.openbk.application.task.service.retrieve.RetrieveTaskRequest;
+import com.amm.poc.openbk.application.task.service.retrieve.RetrieveTaskResponse;
 import com.amm.poc.openbk.application.task.service.create.CreateNewTaskRequest;
 import com.amm.poc.openbk.application.task.service.update.UpdateTaskRequest;
 import com.amm.poc.openbk.application.task.service.update.UpdateTaskResponse;

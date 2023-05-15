@@ -1,4 +1,4 @@
-package com.amm.poc.openbk.application.task.retrieve;
+package com.amm.poc.openbk.application.task.service.retrieve;
 
 import java.util.UUID;
 

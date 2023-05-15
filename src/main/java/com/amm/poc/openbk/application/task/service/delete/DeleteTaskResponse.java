@@ -1,4 +1,4 @@
-package com.amm.poc.openbk.application.task.delete;
+package com.amm.poc.openbk.application.task.service.delete;
 
 import com.amm.poc.openbk.domain.task.Task;
 

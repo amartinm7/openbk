@@ -1,5 +1,7 @@
-package com.amm.poc.openbk.application.task.retrieve;
+package com.amm.poc.openbk.application.task.service.retrieve;
 
+import com.amm.poc.openbk.application.task.service.retrieve.RetrieveTaskResponse;
+import com.amm.poc.openbk.application.task.service.retrieve.RetrieveTaskService;
 import com.amm.poc.openbk.domain.task.TaskRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
