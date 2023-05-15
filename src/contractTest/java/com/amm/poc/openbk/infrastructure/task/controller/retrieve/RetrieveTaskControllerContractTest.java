@@ -42,4 +42,11 @@ public class RetrieveTaskControllerContractTest extends SpringbootContractTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
+
+    @Test
+    public void should_retrieve_a_bad_request_given_an_id() throws Exception {
+        mvc.perform(get("/v1/task/1")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest());
+    }
 }

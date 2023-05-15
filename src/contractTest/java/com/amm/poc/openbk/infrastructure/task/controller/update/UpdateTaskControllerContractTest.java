@@ -34,4 +34,11 @@ public class UpdateTaskControllerContractTest extends SpringbootContractTest {
                 .andExpect(jsonPath("$.description", is(TaskFixtures.ANY_HTTP_TASK_RESPONSE.description())))
                 .andExpect(jsonPath("$.priority", is(TaskFixtures.ANY_HTTP_TASK_RESPONSE.priority())));
     }
+
+    @Test
+    public void should_retrieve_a_bad_request_given_an_id() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.put("/v1/task/1")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest());
+    }
 }

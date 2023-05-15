@@ -14,6 +14,7 @@ import java.util.NoSuchElementException;
 import static com.amm.poc.openbk.TaskFixtures.ANY_DELETE_TASK_REQUEST;
 import static com.amm.poc.openbk.TaskFixtures.ANY_DELETE_TASK_RESPONSE;
 import static org.hamcrest.CoreMatchers.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 public class DeleteTaskControllerContractTest extends SpringbootContractTest {
@@ -41,5 +42,12 @@ public class DeleteTaskControllerContractTest extends SpringbootContractTest {
         mvc.perform(MockMvcRequestBuilders.delete("/v1/task/%s".formatted(TaskFixtures.ANY_UUID))
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void should_retrieve_a_bad_request_given_an_id() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.delete("/v1/task/1")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest());
     }
 }

@@ -1,5 +1,7 @@
 # openbk: Task CRUD springboot microservice 
 
+## Some intructions to run the project.
+
 To run the app and the database execute
 
 ```bash
@@ -20,5 +22,13 @@ sh update/update_task.sh
 sh retrieve/retrieve_task.sh
 sh delete/delete_task.sh
 ```
+## Run the documentation
+
+run the server to watch the documenation on the [doc folder](http://localhost:3000)
+```bash
+docsify serve _docs
+```
+
+
 
 
