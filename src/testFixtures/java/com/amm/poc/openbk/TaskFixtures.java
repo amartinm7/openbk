@@ -1,5 +1,6 @@
 package com.amm.poc.openbk;
 
+import com.amm.poc.openbk.application.task.service.create.CreateNewTaskResponse;
 import com.amm.poc.openbk.application.task.service.delete.DeleteTaskRequest;
 import com.amm.poc.openbk.application.task.service.delete.DeleteTaskResponse;
 import com.amm.poc.openbk.application.task.service.retrieve.RetrieveTaskRequest;
@@ -21,10 +22,12 @@ public class TaskFixtures {
     public static final String taskDescription = "lorem ipsum";
     public static final int taskPriority = 3;
     public static final String ANY_UUID_STR = "3deab62e-2fe2-4f30-aede-96484fa3f738";
+
     public static final UUID ANY_UUID = UUID.fromString(ANY_UUID_STR);
     public static final Task ANY_TASK = Task.of(ANY_UUID, taskName, taskDescription, taskPriority);
     public static final JpaTask ANY_JPA_TASK = new JpaTask(ANY_UUID, taskName, taskDescription, taskPriority);
     public static final CreateNewTaskRequest ANY_CREATE_NEW_TASK_REQUEST = new CreateNewTaskRequest(taskName, taskDescription, taskPriority);
+    public static final CreateNewTaskResponse ANY_CREATE_NEW_TASK_RESPONSE = new CreateNewTaskResponse(ANY_TASK);
     public static final UpdateTaskRequest ANY_UPDATE_TASK_REQUEST = new UpdateTaskRequest(ANY_TASK);
     public static final UpdateTaskResponse ANY_UPDATE_TASK_RESPONSE = new UpdateTaskResponse(ANY_TASK);
     public static final RetrieveTaskRequest ANY_RETRIEVE_TASK_REQUEST = new RetrieveTaskRequest(ANY_UUID);
