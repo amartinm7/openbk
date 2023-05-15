@@ -31,6 +31,11 @@ public class JpaTaskRepository implements TaskRepository {
         return taskFrom(response.orElseThrow());
     }
 
+    @Override
+    public Task delete(UUID uuid) {
+        return null;
+    }
+
     private JpaTask jpaTaskFrom(Task task) {
         return new JpaTask(
                 task.uuid(),

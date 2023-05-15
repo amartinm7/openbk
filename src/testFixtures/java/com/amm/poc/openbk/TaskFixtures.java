@@ -30,5 +30,6 @@ public class TaskFixtures {
     public static final DeleteTaskRequest ANY_DELETE_TASK_REQUEST = new DeleteTaskRequest(ANY_UUID);
     public static final DeleteTaskResponse ANY_DELETE_TASK_RESPONSE = new DeleteTaskResponse(ANY_TASK);
     public static final TaskHttpRequest ANY_HTTP_TASK_REQUEST = new TaskHttpRequest(taskName, taskDescription, taskPriority);
+
     public static final TaskHttpResponse ANY_HTTP_TASK_RESPONSE = TaskHttpResponse.of(ANY_TASK);
 }

@@ -8,4 +8,6 @@ public interface TaskRepository {
     Task update(Task task);
 
     Task findBy(UUID uuid);
+
+    Task delete(UUID uuid);
 }

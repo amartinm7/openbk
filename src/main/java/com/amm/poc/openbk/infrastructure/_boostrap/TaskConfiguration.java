@@ -10,8 +10,6 @@ import com.amm.poc.openbk.infrastructure.task.repository.ListCrudJpaTaskReposito
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.swing.text.DefaultEditorKit;
-
 @Configuration
 public class TaskConfiguration {
 
@@ -36,7 +34,7 @@ public class TaskConfiguration {
     }
 
     @Bean
-    public DeleteTaskService deleteTaskService() {
-        return new DeleteTaskService();
+    public DeleteTaskService deleteTaskService(TaskRepository taskRepository) {
+        return new DeleteTaskService(taskRepository);
     }
 }
