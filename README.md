@@ -17,10 +17,10 @@ look for the `src/test/testing.http` file and execute the endpoints
 Another alternative is to execute the scripts over the test/resources folder
 
 ```bash
-sh create/create_task.sh
-sh update/update_task.sh
-sh retrieve/retrieve_task.sh
-sh delete/delete_task.sh
+sh src/test/resources/create/create_task.sh
+sh src/test/resources/update/update_task.sh
+sh src/test/resources/retrieve/retrieve_task.sh
+sh src/test/resources/delete/delete_task.sh
 ```
 ## Run the documentation
 

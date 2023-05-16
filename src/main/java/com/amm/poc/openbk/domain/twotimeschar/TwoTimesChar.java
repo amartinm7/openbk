@@ -14,7 +14,11 @@ import java.util.stream.Collectors;
  * 3. Given "codility", the function should return "i".
  */
 public class TwoTimesChar {
-
+    // sanitizeWord: clean the list, remove not valid the chars
+    // create a reducedChars set with the array to remove the duplicates characters
+    // create a allChars list with the array. Inside will be a duplicated char, (two times)
+    // over the reducedChars set, iterate, and over every iteration, remove the current item on the allChars
+    // when the loop is over, the end allChars remain the searched char.
     public String solution(String word) {
         String sanitizedWord = sanitizeWord(word);
         Set<Character> reducedChars = stringToSet(sanitizedWord);
