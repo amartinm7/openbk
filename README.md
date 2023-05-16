@@ -12,7 +12,7 @@ Look the endpoint on the open-api url [open-api](http://localhost:8000/swagger-u
 
 Once everything is alright let's go to execute the endpoints.
 
-look for the `testing.http` file and execute the endpoints
+look for the `src/test/testing.http` file and execute the endpoints
 
 Another alternative is to execute the scripts over the test/resources folder
 
