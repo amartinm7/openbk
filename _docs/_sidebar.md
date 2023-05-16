@@ -5,3 +5,4 @@
 * [Getting Started with Springboot](./springboot/README.md)
 * [flyway](./flyway/README.md)
 * [open-api](./open-api/README.md)
+* [general articles](./articles/README.md)

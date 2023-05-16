@@ -1,6 +1,6 @@
 # What is CQRS (Command and Query Responsibility Segregation) Pattern in Microservices Architecture?
 
-Why use CQRS Pattern? How does CQRS Pattern improves scalability of your Microservice architecture.
+## Why use CQRS Pattern? How does CQRS Pattern improves scalability of your Microservice architecture.
 
 ![cqrs_overview](./_img/cqrs_overview.jpg)
 
@@ -24,7 +24,7 @@ Join Medium with my referral link - Soma
 Read this and every story from thousands of great writers on Medium). Read more from great writers on Medium like…
 medium.com
 
-What is Command Query Responsibility Segregation Pattern? How does CQRS Pattern Works?
+## What is Command Query Responsibility Segregation Pattern? How does CQRS Pattern Works?
 The Command Query Responsibility Segregation (CQRS) pattern is a design pattern that separates the responsibilities of handling read (query) and write (command) operations in an application.
 
 In a traditional architecture, a single model is used for both read and write operations, which can result in challenges when it comes to scalability, performance, and maintenance.
@@ -45,7 +45,7 @@ But as they said, there is no free lunch and CQRS is no exception. For all those
 
 ![cqrs_overview](./_img/cqrs_details.jpg)
 
-What problem is solved by CQRS pattern in Microservices Architecture? Example
+## What problem is solved by CQRS pattern in Microservices Architecture? Example
 CQRS (Command Query Responsibility Segregation) is a pattern that helps solve several challenges in designing and implementing complex systems. First of all, it allows for separate optimization of read and write operations, improving scalability and performance.
 
 It also promotes separation of concerns, making code cleaner and more maintainable. It enables event-driven architecture and supports different consistency models.
@@ -74,7 +74,7 @@ The separation of the read and write models allows for independent scaling of th
 
 This separation of concerns helps to alleviate contention and performance issues in the database, leading to a more scalable and performant microservice architecture.
 
-How does CQRS Pattern Improves Microservice Architecture? 10 Benefits of CQRS Pattern
+## How does CQRS Pattern Improves Microservice Architecture? 10 Benefits of CQRS Pattern
 The Command Query Responsibility Segregation (CQRS) pattern can improve microservice architecture in several ways:
 
 1. Scalability
@@ -113,28 +113,7 @@ You can combine CQRS Pattern with Event Sourcing, Asynchronous Communication usi
 
 ![cqrs_overview](./_img/cqrs.jpg)
 
-Java and Spring Interview Preparation Material
-Before any Java and Spring Developer interview, I always use to read the below resources
-
-Grokking the Java Interview
-
-Grokking the Java Interview: click here
-
-I have personally bought these books to speed up my preparation.
-
-You can get your sample copy here, check the content of it and go for it
-
-Grokking the Java Interview [Free Sample Copy]: click here
-
-
-If you want to prepare for the Spring Boot interview you follow this consolidated ebook, it also contains microservice questions from spring boot interviews.
-
-Grokking the Spring Boot Interview
-
-You can get your copy here — Grokking the Spring Boot Interview
-
-
-Conclusion
+# Conclusion
 That’s all about what is CQRS Pattern in Microservices architecture and how it changes your application structure and performance. As we have seen in this article the CQRS (Command and Query Responsibility Segregation) pattern can greatly improve your microservice architecture by addressing challenges related to scalability, performance, and separation of concerns.
 
 By separating the read and write models, CQRS allows for optimized and independent scaling of these components, leading to better performance and scalability. CQRS Pattern also enables efficient handling of read-heavy and write-heavy operations, reducing contention and performance issues in the database.
